@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
+import Proptypes from 'prop-types';
 import { AddCategory } from './components/AddCategory';
 import { GifGrid } from './components/GifGrid';
 
 
-export const GitExpertApp = () => {
+export const GitExpertApp = ( { defaultCategories  = [] }) => {
     //const categories = ['One Punch', 'Samurai X', 'Dragon Ball']
-    const [categories, setCategories] = useState(['One Punch']);
+
+
+    const [categories, setCategories] = useState( defaultCategories  );
     // const handlenAdd = ()=>{
     //   setCategories( cats => [...cats, 'Misleidy']);
 
@@ -34,3 +37,6 @@ export const GitExpertApp = () => {
     )
 };
 
+GitExpertApp.prototype ={
+    category: Proptypes.string.isRequired
+}
